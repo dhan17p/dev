@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="supplier221Service" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Invoice1" EntityType="supplier221Service.Invoice1">
+                    <NavigationPropertyBinding Path="child_draft2" Target="Draft_child2"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Invoice1"/>
+                </EntitySet>
+                <EntitySet Name="Invoice2" EntityType="supplier221Service.Invoice2">
+                    <NavigationPropertyBinding Path="child2" Target="Rejected_child2"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Invoice2"/>
+                </EntitySet>
+                <EntitySet Name="Invoice3" EntityType="supplier221Service.Invoice3">
+                    <NavigationPropertyBinding Path="parent" Target="Invoice2"/>
+                </EntitySet>
+                <EntitySet Name="Draft_child" EntityType="supplier221Service.Draft_child"/>
+                <EntitySet Name="New" EntityType="supplier221Service.New">
+                    <NavigationPropertyBinding Path="child_new" Target="New_child"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="New"/>
+                </EntitySet>
+                <EntitySet Name="New_child" EntityType="supplier221Service.New_child">
+                    <NavigationPropertyBinding Path="parent_new" Target="New"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="New_child"/>
+                </EntitySet>
+                <EntitySet Name="Submitted" EntityType="supplier221Service.Submitted">
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Submitted"/>
+                </EntitySet>
+                <EntitySet Name="sub" EntityType="supplier221Service.sub">
+                    <NavigationPropertyBinding Path="child_Submitted123" Target="Submitted_child"/>
+                    <NavigationPropertyBinding Path="child_sub2" Target="Submitted_child2"/>
+                </EntitySet>
+                <EntitySet Name="sub12" EntityType="supplier221Service.sub12"/>
+                <EntitySet Name="Submitted_child" EntityType="supplier221Service.Submitted_child">
+                    <NavigationPropertyBinding Path="parent_Submitted" Target="sub"/>
+                </EntitySet>
+                <EntitySet Name="Submitted_child2" EntityType="supplier221Service.Submitted_child2">
+                    <NavigationPropertyBinding Path="parent_sub2" Target="sub"/>
+                </EntitySet>
+                <EntitySet Name="Approved" EntityType="supplier221Service.Approved">
+                    <NavigationPropertyBinding Path="child_Approved" Target="Approved_child"/>
+                    <NavigationPropertyBinding Path="child_Approved2" Target="Approved_child2"/>
+                </EntitySet>
+                <EntitySet Name="Approved_child" EntityType="supplier221Service.Approved_child">
+                    <NavigationPropertyBinding Path="parent_Approved" Target="Approved"/>
+                </EntitySet>
+                <EntitySet Name="Draft_child2" EntityType="supplier221Service.Draft_child2">
+                    <NavigationPropertyBinding Path="parent_draft2" Target="Invoice1"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Draft_child2"/>
+                </EntitySet>
+                <EntitySet Name="Approved_child2" EntityType="supplier221Service.Approved_child2">
+                    <NavigationPropertyBinding Path="parent_Approved2" Target="Approved"/>
+                </EntitySet>
+                <EntitySet Name="Rejected_child2" EntityType="supplier221Service.Rejected_child2">
+                    <NavigationPropertyBinding Path="parentrejected2" Target="Invoice2"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Rejected_child2"/>
+                </EntitySet>
+                <EntitySet Name="Currency" EntityType="supplier221Service.Currency"/>
+                <EntitySet Name="Document_type" EntityType="supplier221Service.Document_type"/>
+                <EntitySet Name="vendor_payment_term" EntityType="supplier221Service.vendor_payment_term"/>
+                <EntitySet Name="vendor_tds" EntityType="supplier221Service.vendor_tds"/>
+                <EntitySet Name="material_gst_per" EntityType="supplier221Service.material_gst_per"/>
+            </EntityContainer>
+            <EntityType Name="Invoice1">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="supplier_name" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="total_value" Type="Edm.String"/>
+                <Property Name="working_person" Type="Edm.String"/>
+                <Property Name="modified_date" Type="Edm.DateTimeOffset"/>
+                <Property Name="INVOICE_FILE" Type="Edm.String"/>
+                <Property Name="totaltaxamount" Type="Edm.String"/>
+                <Property Name="bool" Type="Edm.Boolean"/>
+                <Property Name="value1" Type="Edm.Int32" DefaultValue="7"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="ref_po_num_bool" Type="Edm.Boolean"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="tax_per" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <Property Name="igst_tot_amt" Type="Edm.String"/>
+                <Property Name="showgst" Type="Edm.String"/>
+                <Property Name="file_link" Type="Edm.String"/>
+                <Property Name="buttonbool" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="npo" Type="Edm.String"/>
+                <Property Name="is_igst" Type="Edm.String"/>
+                <Property Name="sup_status" Type="Edm.String"/>
+                <NavigationProperty Name="child_draft2" Type="Collection(supplier221Service.Draft_child2)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.Invoice1"/>
+            </EntityType>
+            <EntityType Name="Invoice2">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="supplier_name" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="total_value" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="working_person" Type="Edm.String"/>
+                <Property Name="modified_date" Type="Edm.DateTimeOffset"/>
+                <Property Name="INVOICE_FILE" Type="Edm.String"/>
+                <Property Name="totaltaxamount" Type="Edm.String"/>
+                <Property Name="bool" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="value1" Type="Edm.Int32"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="ref_po_num_bool" Type="Edm.Boolean"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="tax_per" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <Property Name="igst_tot_amt" Type="Edm.String"/>
+                <Property Name="showgst" Type="Edm.String"/>
+                <Property Name="file_link" Type="Edm.String"/>
+                <Property Name="buttonbool" Type="Edm.Boolean"/>
+                <Property Name="npo" Type="Edm.String"/>
+                <Property Name="is_igst" Type="Edm.String"/>
+                <Property Name="sup_status" Type="Edm.String"/>
+                <NavigationProperty Name="child2" Type="Collection(supplier221Service.Rejected_child2)" Partner="parentrejected2">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.Invoice2"/>
+            </EntityType>
+            <EntityType Name="Invoice3">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false" DefaultValue="weq"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <NavigationProperty Name="parent" Type="supplier221Service.Invoice2">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Draft_child">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="ref_po_num" Type="Edm.String" DefaultValue="123"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="tax_per" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <Property Name="igst_tot_amt" Type="Edm.String"/>
+                <Property Name="showgst" Type="Edm.String"/>
+                <Property Name="totaltaxamount" Type="Edm.String"/>
+                <Property Name="fieldControl" Type="Edm.Int32" DefaultValue="1"/>
+                <Property Name="Boolean" Type="Edm.Boolean" DefaultValue="true"/>
+            </EntityType>
+            <EntityType Name="New">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="supplier_name" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="total_value" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="working_person" Type="Edm.String"/>
+                <Property Name="modified_date" Type="Edm.DateTimeOffset"/>
+                <Property Name="INVOICE_FILE" Type="Edm.String"/>
+                <NavigationProperty Name="child_new" Type="Collection(supplier221Service.New_child)" Partner="parent_new"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.New"/>
+            </EntityType>
+            <EntityType Name="New_child">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <NavigationProperty Name="parent_new" Type="supplier221Service.New" Partner="child_new">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.New_child"/>
+            </EntityType>
+            <EntityType Name="Submitted">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="supplier_name" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="total_value" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="working_person" Type="Edm.String"/>
+                <Property Name="modified_date" Type="Edm.DateTimeOffset"/>
+                <Property Name="INVOICE_FILE" Type="Edm.String"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.Submitted"/>
+            </EntityType>
+            <EntityType Name="sub">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="supplier_name" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="total_value" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="working_person" Type="Edm.String"/>
+                <Property Name="modified_date" Type="Edm.DateTimeOffset"/>
+                <Property Name="INVOICE_FILE" Type="Edm.String"/>
+                <Property Name="totaltaxamount" Type="Edm.String"/>
+                <Property Name="bool" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="value1" Type="Edm.Int32" DefaultValue="7"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="ref_po_num_bool" Type="Edm.Boolean"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="tax_per" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <Property Name="igst_tot_amt" Type="Edm.String"/>
+                <Property Name="showgst" Type="Edm.String"/>
+                <Property Name="is_igst" Type="Edm.String"/>
+                <Property Name="file_link" Type="Edm.String"/>
+                <NavigationProperty Name="child_Submitted123" Type="Collection(supplier221Service.Submitted_child)"/>
+                <NavigationProperty Name="child_sub2" Type="Collection(supplier221Service.Submitted_child2)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="sub12">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Submitted_child">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false" DefaultValue="1234"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <Property Name="showIGST" Type="Edm.Boolean"/>
+                <Property Name="showgst" Type="Edm.String"/>
+                <NavigationProperty Name="parent_Submitted" Type="supplier221Service.sub">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Submitted_child2">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="item_no" Type="Edm.String"/>
+                <Property Name="id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="material" Type="Edm.String"/>
+                <Property Name="material_desc" Type="Edm.String"/>
+                <Property Name="hsn_code" Type="Edm.String"/>
+                <Property Name="quantity" Type="Edm.String"/>
+                <Property Name="amt_per_unit" Type="Edm.String"/>
+                <Property Name="discount" Type="Edm.String"/>
+                <Property Name="gst_per" Type="Edm.String"/>
+                <Property Name="sgst_per" Type="Edm.String"/>
+                <Property Name="cgst_per" Type="Edm.String"/>
+                <Property Name="igst_per" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="tax_value_amount" Type="Edm.String"/>
+                <Property Name="sgst_amount" Type="Edm.String"/>
+                <Property Name="cgst_amount" Type="Edm.String"/>
+                <Property Name="igst_amount" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="start" Type="Edm.String"/>
+                <Property Name="bsgst_per" Type="Edm.Boolean"/>
+                <Property Name="bigst_per" Type="Edm.Boolean"/>
+                <Property Name="hide" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="is_igst" Type="Edm.Boolean"/>
+                <NavigationProperty Name="parent_sub2" Type="supplier221Service.sub">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Approved">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="supplier_name" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="total_value" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="working_person" Type="Edm.String"/>
+                <Property Name="modified_date" Type="Edm.DateTimeOffset"/>
+                <Property Name="INVOICE_FILE" Type="Edm.String"/>
+                <Property Name="totaltaxamount" Type="Edm.String"/>
+                <Property Name="bool" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="value1" Type="Edm.Int32" DefaultValue="7"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="ref_po_num_bool" Type="Edm.Boolean"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="tax_per" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <Property Name="igst_tot_amt" Type="Edm.String"/>
+                <Property Name="showgst" Type="Edm.String"/>
+                <Property Name="file_link" Type="Edm.String"/>
+                <Property Name="buttonbool" Type="Edm.Boolean"/>
+                <NavigationProperty Name="child_Approved" Type="Collection(supplier221Service.Approved_child)" Partner="parent_Approved"/>
+                <NavigationProperty Name="child_Approved2" Type="Collection(supplier221Service.Approved_child2)"/>
+            </EntityType>
+            <EntityType Name="Approved_child">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="ref_po_num" Type="Edm.String"/>
+                <Property Name="irn" Type="Edm.String"/>
+                <Property Name="gstin" Type="Edm.String"/>
+                <Property Name="doc_type_desc" Type="Edm.String"/>
+                <Property Name="user_invoice_id" Type="Edm.String"/>
+                <Property Name="invoice_date" Type="Edm.Date"/>
+                <Property Name="posting_date" Type="Edm.String"/>
+                <Property Name="baseline_date" Type="Edm.String"/>
+                <Property Name="supplier_id" Type="Edm.String"/>
+                <Property Name="payment_terms" Type="Edm.String"/>
+                <Property Name="payment_method" Type="Edm.String"/>
+                <Property Name="company_code" Type="Edm.String"/>
+                <Property Name="currency" Type="Edm.String"/>
+                <Property Name="department_name" Type="Edm.String"/>
+                <Property Name="gl_account" Type="Edm.String"/>
+                <Property Name="cost_center" Type="Edm.String"/>
+                <Property Name="internal_order" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="adjustment" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="tcs" Type="Edm.String"/>
+                <Property Name="tds_per" Type="Edm.String"/>
+                <Property Name="tds_tot_amt" Type="Edm.String"/>
+                <Property Name="discount_per" Type="Edm.String"/>
+                <Property Name="total_discount_amount" Type="Edm.String"/>
+                <Property Name="cgst_tot_amt" Type="Edm.String"/>
+                <Property Name="sgst_tot_amt" Type="Edm.String"/>
+                <NavigationProperty Name="parent_Approved" Type="supplier221Service.Approved" Partner="child_Approved">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Draft_child2">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="id"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="item_no" Type="Edm.String"/>
+                <Property Name="material" Type="Edm.String"/>
+                <Property Name="material_desc" Type="Edm.String"/>
+                <Property Name="hsn_code" Type="Edm.String"/>
+                <Property Name="quantity" Type="Edm.String"/>
+                <Property Name="amt_per_unit" Type="Edm.String"/>
+                <Property Name="discount" Type="Edm.String"/>
+                <Property Name="gst_per" Type="Edm.String"/>
+                <Property Name="sgst_per" Type="Edm.String"/>
+                <Property Name="cgst_per" Type="Edm.String"/>
+                <Property Name="igst_per" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="tax_value_amount" Type="Edm.String"/>
+                <Property Name="sgst_amount" Type="Edm.String"/>
+                <Property Name="cgst_amount" Type="Edm.String"/>
+                <Property Name="igst_amount" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="start" Type="Edm.String"/>
+                <Property Name="bsgst_per" Type="Edm.Boolean"/>
+                <Property Name="bigst_per" Type="Edm.Boolean"/>
+                <Property Name="hide" Type="Edm.Boolean" DefaultValue="true"/>
+                <NavigationProperty Name="parent_draft2" Type="supplier221Service.Invoice1">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+                <Property Name="id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.Draft_child2"/>
+            </EntityType>
+            <EntityType Name="Approved_child2">
+                <Key>
+                    <PropertyRef Name="invoice_no"/>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="invoice_no" Type="Edm.String" Nullable="false"/>
+                <Property Name="item_no" Type="Edm.String"/>
+                <Property Name="id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="material" Type="Edm.String"/>
+                <Property Name="material_desc" Type="Edm.String"/>
+                <Property Name="hsn_code" Type="Edm.String"/>
+                <Property Name="quantity" Type="Edm.String"/>
+                <Property Name="amt_per_unit" Type="Edm.String"/>
+                <Property Name="discount" Type="Edm.String"/>
+                <Property Name="gst_per" Type="Edm.String"/>
+                <Property Name="sgst_per" Type="Edm.String"/>
+                <Property Name="cgst_per" Type="Edm.String"/>
+                <Property Name="igst_per" Type="Edm.String"/>
+                <Property Name="taxable_amount" Type="Edm.String"/>
+                <Property Name="tax_value_amount" Type="Edm.String"/>
+                <Property Name="sgst_amount" Type="Edm.String"/>
+                <Property Name="cgst_amount" Type="Edm.String"/>
+                <Property Name="igst_amount" Type="Edm.String"/>
+                <Property Name="amount" Type="Edm.String"/>
+                <Property Name="start" Type="Edm.String"/>
+                <Property Name="bsgst_per" Type="Edm.Boolean"/>
+                <Property Name="bigst_per" Type="Edm.Boolean"/>
+                <Property Name="hide" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="is_igst" Type="Edm.Boolean"/>
+                <NavigationProperty Name="parent_Approved2" Type="supplier221Service.Approved">
+                    <ReferentialConstraint Property="invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Rejected_child2">
+                <Key>
+                    <PropertyRef Name="uid"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="uid" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="invoice_no" Type="Edm.String"/>
+                <Property Name="id" Type="Edm.Int32" DefaultValue="212"/>
+                <Property Name="item_no" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="material" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="material_desc" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="hsn_code" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="quantity" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="amt_per_unit" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="discount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="gst_per" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="sgst_per" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="cgst_per" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="igst_per" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="taxable_amount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="tax_value_amount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="sgst_amount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="cgst_amount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="igst_amount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="amount" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="start" Type="Edm.String" DefaultValue="NA"/>
+                <Property Name="bsgst_per" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="bigst_per" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="hide" Type="Edm.Boolean" DefaultValue="true"/>
+                <Property Name="DraftUUID" Type="Edm.Guid"/>
+                <NavigationProperty Name="parentrejected2" Type="supplier221Service.Invoice2" Partner="child2">
+                    <ReferentialConstraint Property="parentrejected2_invoice_no" ReferencedProperty="invoice_no"/>
+                </NavigationProperty>
+                <Property Name="parentrejected2_invoice_no" Type="Edm.String"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="supplier221Service.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="supplier221Service.Rejected_child2"/>
+            </EntityType>
+            <EntityType Name="Currency">
+                <Property Name="code" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Document_type">
+                <Property Name="code" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="master_name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="vendor_payment_term">
+                <Property Name="drop_key" Type="Edm.String"/>
+                <Property Name="table_key" Type="Edm.String"/>
+                <Property Name="value2" Type="Edm.String"/>
+                <Property Name="value3" Type="Edm.String"/>
+                <Property Name="value4" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="vendor_tds">
+                <Property Name="drop_key" Type="Edm.String"/>
+                <Property Name="table_key" Type="Edm.String"/>
+                <Property Name="value2" Type="Edm.String"/>
+                <Property Name="value3" Type="Edm.String"/>
+                <Property Name="value4" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="material_gst_per">
+                <Property Name="value2" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DraftAdministrativeData">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="InProcessByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean"/>
+            </EntityType>
+            <Action Name="showigst" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="showigst" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="hideigst" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="hideigst" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="setOrderProcessing" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="setOrderOpen" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Invoice1"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Invoice2"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.New"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.New"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.New_child"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.New_child"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Submitted"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.Submitted"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Draft_child2"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.Draft_child2"/>
+            </Action>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Rejected_child2"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="supplier221Service.Rejected_child2"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Invoice1"/>
+                <ReturnType Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Invoice2"/>
+                <ReturnType Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.New"/>
+                <ReturnType Type="supplier221Service.New"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.New_child"/>
+                <ReturnType Type="supplier221Service.New_child"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Submitted"/>
+                <ReturnType Type="supplier221Service.Submitted"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Invoice1"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="supplier221Service.Invoice1"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Invoice2"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.New"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="supplier221Service.New"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.New_child"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="supplier221Service.New_child"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="supplier221Service.Submitted"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="supplier221Service.Submitted"/>
+            </Action>
+            <Action Name="shownpo" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="hidenpo" IsBound="true">
+                <Parameter Name="_it" Type="supplier221Service.Invoice2"/>
+            </Action>
+            <Action Name="showigst1" IsBound="true">
+                <Parameter Name="in" Type="supplier221Service.Draft_child2"/>
+            </Action>
+            <Action Name="hideigst2" IsBound="true">
+                <Parameter Name="in" Type="supplier221Service.Draft_child2"/>
+            </Action>
+            <Annotations Target="supplier221Service.EntityContainer/Invoice1">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="supplier221Service.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="supplier221Service.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice1/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice1/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice1/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice1/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.showigst(supplier221Service.Invoice1)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/bool</Path>
+                        <Bool>false</Bool>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/totaltaxamount</String>
+                                <String>_it/bool</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.hideigst(supplier221Service.Invoice1)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/bool</Path>
+                        <Bool>true</Bool>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/totaltaxamount</String>
+                                <String>_it/bool</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.setOrderProcessing(supplier221Service.Invoice1)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/bool</Path>
+                        <Bool>false</Bool>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/INVOICE_FILE</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.setOrderOpen(supplier221Service.Invoice1)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/bool</Path>
+                        <Bool>true</Bool>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/INVOICE_FILE</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.EntityContainer/Invoice2">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="supplier221Service.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="supplier221Service.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice2/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice2/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice2/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Invoice2/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.showigst(supplier221Service.Invoice2)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/bool</Path>
+                        <Bool>false</Bool>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/totaltaxamount</String>
+                                <String>_it/bool</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.hideigst(supplier221Service.Invoice2)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/bool</Path>
+                        <Bool>true</Bool>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/totaltaxamount</String>
+                                <String>_it/bool</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.shownpo(supplier221Service.Invoice2)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/value1</Path>
+                        <Int>3</Int>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/ref_po_num</String>
+                                <String>_it/value1</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.hidenpo(supplier221Service.Invoice2)">
+                <Annotation Term="Core.OperationAvailable">
+                    <Eq>
+                        <Path>_it/value1</Path>
+                        <Int>7</Int>
+                    </Eq>
+                </Annotation>
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>_it/ref_po_num</String>
+                                <String>_it/value1</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child/ref_po_num">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child/doc_type_desc">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child/payment_terms">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.EntityContainer/New">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="supplier221Service.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="supplier221Service.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.New/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.New/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.New/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.New/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.EntityContainer/New_child">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="supplier221Service.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="supplier221Service.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.New_child/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.New_child/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.New_child/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.New_child/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.EntityContainer/Submitted">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="supplier221Service.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="supplier221Service.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.Submitted/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Submitted/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Submitted/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Submitted/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.EntityContainer/Draft_child2">
+                <Annotation Term="Common.DraftNode">
+                    <Record Type="Common.DraftNodeType">
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child2/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child2/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child2/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Draft_child2/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.showigst1(supplier221Service.Draft_child2)">
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>in/bigst_per</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.hideigst2(supplier221Service.Draft_child2)">
+                <Annotation Term="Common.SideEffects">
+                    <Record Type="Common.SideEffectsType">
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>in/bigst_per</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.EntityContainer/Rejected_child2">
+                <Annotation Term="Common.DraftNode">
+                    <Record Type="Common.DraftNodeType">
+                        <PropertyValue Property="PreparationAction" String="supplier221Service.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="supplier221Service.Rejected_child2/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Rejected_child2/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Rejected_child2/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.Rejected_child2/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="supplier221Service.DraftAdministrativeData">
+                <Annotation Term="Common.Label" String="{i18n>Draft_DraftAdministrativeData}"/>
+                </Annotations>
+                <Annotations Target="supplier221Service.DraftAdministrativeData/DraftUUID">
+                    <Annotation Term="UI.Hidden" Bool="true"/>
+                    <Annotation Term="Common.Label" String="{i18n>Draft_DraftUUID}"/>
+                    </Annotations>
+                    <Annotations Target="supplier221Service.DraftAdministrativeData/CreationDateTime">
+                        <Annotation Term="Common.Label" String="{i18n>Draft_CreationDateTime}"/>
+                        </Annotations>
+                        <Annotations Target="supplier221Service.DraftAdministrativeData/CreatedByUser">
+                            <Annotation Term="Common.Label" String="{i18n>Draft_CreatedByUser}"/>
+                            </Annotations>
+                            <Annotations Target="supplier221Service.DraftAdministrativeData/DraftIsCreatedByMe">
+                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsCreatedByMe}"/>
+                                </Annotations>
+                                <Annotations Target="supplier221Service.DraftAdministrativeData/LastChangeDateTime">
+                                    <Annotation Term="Common.Label" String="{i18n>Draft_LastChangeDateTime}"/>
+                                    </Annotations>
+                                    <Annotations Target="supplier221Service.DraftAdministrativeData/LastChangedByUser">
+                                        <Annotation Term="Common.Label" String="{i18n>Draft_LastChangedByUser}"/>
+                                        </Annotations>
+                                        <Annotations Target="supplier221Service.DraftAdministrativeData/InProcessByUser">
+                                            <Annotation Term="Common.Label" String="{i18n>Draft_InProcessByUser}"/>
+                                            </Annotations>
+                                            <Annotations Target="supplier221Service.DraftAdministrativeData/DraftIsProcessedByMe">
+                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsProcessedByMe}"/>
+                                                </Annotations>
+                                            </Schema>
+                                        </edmx:DataServices>
+                                    </edmx:Edmx>

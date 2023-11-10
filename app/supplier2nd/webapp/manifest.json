@@ -1,0 +1,481 @@
+{
+    "_version": "1.58.0",
+    "sap.app": {
+        "id": "supplier2nd",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.11.2",
+            "toolsId": "31b4a5be-e324-4fae-b56a-4b732a1fc237"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/odata/v4/supplier221/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "supplierelipodh-display": {
+                    "semanticObject": "supplierelipodh",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.117.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties",
+                "settings": {
+                    "bundleName": "supplier2nd.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "Invoice1List",
+                    "target": "Invoice1List"
+                },
+                {
+                    "pattern": "Invoice1({key}):?query:",
+                    "name": "Invoice1ObjectPage",
+                    "target": "Invoice1ObjectPage"
+                },
+                {
+                    "pattern": "Invoice2({key}):?query:",
+                    "name": "Invoice2_Invoice2ObjectPage",
+                    "target": "Invoice2_Invoice2ObjectPage"
+                },
+                {
+                    "pattern": "sub({key}):?query:",
+                    "name": "sub_subObjectPage",
+                    "target": "sub_subObjectPage"
+                },
+                {
+                    "pattern": "Approved({key}):?query:",
+                    "name": "Approved_ApprovedObjectPage",
+                    "target": "Approved_ApprovedObjectPage"
+                }
+            ],
+            "targets": {
+                "Invoice1List": {
+                    "type": "Component",
+                    "id": "Invoice1List",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Invoice1",
+                            "variantManagement": "Page",
+                            "contextPath": "/Invoice1",
+                            "navigation": {
+                                "Invoice1": {
+                                    "detail": {
+                                        "route": "Invoice1ObjectPage"
+                                    }
+                                },
+                                "Invoice2": {
+                                    "detail": {
+                                        "route": "Invoice2_Invoice2ObjectPage"
+                                    }
+                                },
+                                "sub": {
+                                    "detail": {
+                                        "route": "sub_subObjectPage"
+                                    }
+                                },
+                                "Approved": {
+                                    "detail": {
+                                        "route": "Approved_ApprovedObjectPage"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled",
+                            "views": {
+                                "paths": [
+                                    {
+                                        "key": "tableView",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView"
+                                    },
+                                    {
+                                        "key": "tableView123",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView",
+                                        "entitySet": "Approved"
+                                    },
+                                    {
+                                        "key": "tableView1",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView",
+                                        "entitySet": "Invoice2"
+                                    },
+                                    {
+                                        "key": "tableView1234",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView",
+                                        "entitySet": "sub"
+                                    }
+                                ]
+                            },
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "type": "GridTable",
+                                        "selectAll": false,
+                                        "selectionMode": "Single"
+                                    }
+                                },
+                                "/Approved/@com.sap.vocabularies.UI.v1.LineItem#tableView": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                },
+                                "/Invoice2/@com.sap.vocabularies.UI.v1.LineItem#tableView": {
+                                    "tableSettings": {
+                                        "type": "GridTable",
+                                        "quickVariantSelection": {
+                                            "showCounts": true
+                                        }
+                                    }
+                                },
+                                "/sub/@com.sap.vocabularies.UI.v1.LineItem#tableView": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Invoice1ObjectPage": {
+                    "type": "Component",
+                    "id": "Invoice1ObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Invoice1",
+                            "enhanceI18n": "i18n/submit.properties",
+                            "navigation": {},
+                            "controlConfiguration": {
+                                "child_draft2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS": {
+                                    "tableSettings": {
+                                        "type": "GridTable",
+                                        "quickVariantSelection": {
+                                            "showCounts": false
+                                        }
+                                    },
+                                    "columns": {
+                                        "DataField::item_no": {
+                                            "width": "5%"
+                                        },
+                                        "DataFieldForAnnotation::FieldGroup::FieldGroup2": {
+                                            "width": "10%"
+                                        },
+                                        "DataFieldForAnnotation::FieldGroup::FieldGroup3": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::material": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::hsn_code": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::quantity": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::amt_per_unit": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::discount": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::taxable_amount": {
+                                            "width": "10%"
+                                        },
+                                        "DataField::tax_value_amount": {
+                                            "width": "15%"
+                                        }
+                                    }
+                                }
+                            },
+                            "content": {
+                                "header": {
+                                    "actions": {
+                                        "show/hide": {
+                                            "press": "supplier2nd.ext.controller.pdf.pdfhandlerfun",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "show/hide"
+                                        },
+                                        "pdfaction": {
+                                            "press": "supplier2nd.ext.controller.Draftattachment.upload",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Upload attachment"
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "F1": {
+                                            "sideContent": {
+                                                "template": "supplier2nd.ext.fragment.Custum",
+                                                "position": {
+                                                    "anchor": "F1",
+                                                    "placement": "After"
+                                                },
+                                                "type": "XMLFragment",
+                                                "title": "pdf"
+                                            },
+                                            "type": "XMLFragment",
+                                            "position": {
+                                                "anchor": "ITEMSSECTION",
+                                                "placement": "After"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Invoice2_Invoice2ObjectPage": {
+                    "type": "Component",
+                    "id": "Invoice2_Invoice2ObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Invoice2",
+                            "enhanceI18n": "i18n/rejected.properties",
+                            "navigation": {},
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "DATA": {
+                                            "sideContent": {
+                                                "template": "supplier2nd.ext.fragment.Rejectedfrag",
+                                                "position": {
+                                                    "placement": "After",
+                                                    "anchor": "DATA"
+                                                },
+                                                "title": "PDF",
+                                                "type": "XMLFragment"
+                                            },
+                                            "type": "XMLFragment",
+                                            "position": {
+                                                "anchor": "itesec",
+                                                "placement": "After"
+                                            }
+                                        }
+                                    }
+                                },
+                                "header": {
+                                    "actions": {
+                                        "actionid": {
+                                            "press": "supplier2nd.ext.controller.approved.pdfhandlerfun",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "show/hide"
+                                        },
+                                        "rejectedaction": {
+                                            "press": "supplier2nd.ext.controller.Rejectedattachment.upload",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Upload attachment",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "actionid"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "sub_subObjectPage": {
+                    "type": "Component",
+                    "id": "sub_subObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "sub",
+                            "navigation": {},
+                            "content": {
+                                "header": {
+                                    "actions": {
+                                        "show/hide": {
+                                            "press": "supplier2nd.ext.controller.submitted.pdfhandlerfun",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "show/hide"
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "DATA": {
+                                            "sideContent": {
+                                                "template": "supplier2nd.ext.fragment.Submittedframent",
+                                                "position": {
+                                                    "anchor": "DATA",
+                                                    "placement": "After"
+                                                },
+                                                "type": "XMLFragment",
+                                                "title": "Rejected"
+                                            },
+                                            "type": "XMLFragment",
+                                            "position": {
+                                                "anchor": "itemssection",
+                                                "placement": "After"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Approved_ApprovedObjectPage": {
+                    "type": "Component",
+                    "id": "Approved_ApprovedObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Approved",
+                            "navigation": {},
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "DATA": {
+                                            "sideContent": {
+                                                "template": "supplier2nd.ext.fragment.ApprovedFragment",
+                                                "position": {
+                                                    "anchor": "DATA",
+                                                    "placement": "After"
+                                                },
+                                                "type": "XMLFragment",
+                                                "title": "Rejected"
+                                            },
+                                            "type": "XMLFragment",
+                                            "position": {
+                                                "anchor": "Itemssection",
+                                                "placement": "After"
+                                            }
+                                        }
+                                    }
+                                },
+                                "header": {
+                                    "actions": {
+                                        "show/hide": {
+                                            "press": "supplier2nd.ext.controller.Appreal.pdfhandlerfun",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "show/hide"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController#supplier2nd::Invoice1ObjectPage": {
+                        "controllerName": "supplier2nd.ext.controller.Pdfcontroller"
+                    },
+                    "sap.fe.templates.ObjectPage.ObjectPageController#supplier2nd::sub_subObjectPage": {
+                        "controllerName": "supplier2nd.ext.controller.Submittedcontroller"
+                    },
+                    "sap.fe.templates.ObjectPage.ObjectPageController#supplier2nd::Approved_ApprovedObjectPage": {
+                        "controllerName": "supplier2nd.ext.controller.Apprealcontroller"
+                    },
+                    "sap.fe.templates.ObjectPage.ObjectPageController#supplier2nd::Invoice2_Invoice2ObjectPage": {
+                        "controllerName": "supplier2nd.ext.controller.Approvedcontroller"
+                    }
+                }
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "supplier221managed"
+    }
+}

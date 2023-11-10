@@ -1,0 +1,10 @@
+
+/* #__vbox2-__clone145-__clone155 {
+    max-height: 100px;
+} */
+td{
+    max-height: 100px;
+}
+div.sapUiTableCellInner{
+    max-height: 115px !important;
+}
