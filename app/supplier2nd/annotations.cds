@@ -810,6 +810,36 @@ annotate service.Draft_child2 with @(
         Label: 'Sl No.',
         ![@UI.Importance] : #High,
     },
+        {
+        $Type: 'UI.DataField',
+        Value: material,
+        Label: 'Material',
+           ![@UI.Importance] : #High,
+    },
+        {
+        $Type: 'UI.DataField',
+        Value: hsn_code,
+        Label: 'HSN Code',
+           ![@UI.Importance] : #High,
+    },
+        {
+        $Type: 'UI.DataField',
+        Value: quantity,
+        Label: 'Qty',
+           ![@UI.Importance] : #High,
+    },
+        {
+        $Type: 'UI.DataField',
+        Value: amt_per_unit,
+        Label: 'Unit Price',
+           ![@UI.Importance] : #High,
+    },
+        {
+        $Type: 'UI.DataField',
+        Value: discount,
+        Label: 'Disc.%',
+           ![@UI.Importance] : #High,
+    },
     //      {
     //     $Type : 'UI.DataFieldForAnnotation',
     //     Target : '@UI.FieldGroup#FieldGroup1',
@@ -822,43 +852,7 @@ annotate service.Draft_child2 with @(
         Label : 'GST%',
            ![@UI.Importance] : #High,
     },
-    {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup3',
-        Label : 'Tax Amount',
-           ![@UI.Importance] : #High,
-    },
-    {
-        $Type: 'UI.DataField',
-        Value: material,
-        Label: 'Material',
-           ![@UI.Importance] : #High,
-    },
-    {
-        $Type: 'UI.DataField',
-        Value: hsn_code,
-        Label: 'HSN Code',
-           ![@UI.Importance] : #High,
-    },
-    {
-        $Type: 'UI.DataField',
-        Value: quantity,
-        Label: 'Qty',
-           ![@UI.Importance] : #High,
-    },
-    {
-        $Type: 'UI.DataField',
-        Value: amt_per_unit,
-        Label: 'Unit Price',
-           ![@UI.Importance] : #High,
-    },
-    {
-        $Type: 'UI.DataField',
-        Value: discount,
-        Label: 'Disc.%',
-           ![@UI.Importance] : #High,
-    },
-    // {
+        // {
     //     $Type : 'UI.DataField',
     //     Value : gst_per,
     //     Label : 'GST %',
@@ -884,6 +878,12 @@ annotate service.Draft_child2 with @(
         $Type: 'UI.DataField',
         Value: taxable_amount,
         Label: 'Taxable Amount',
+           ![@UI.Importance] : #High,
+    },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup3',
+        Label : 'Tax Amount',
            ![@UI.Importance] : #High,
     },
     // {
@@ -1633,17 +1633,6 @@ annotate service.Submitted_child2 with @(UI.LineItem #ITEMS3: [
         Label: 'Sl No.',
     },
     {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup2',
-        Label : 'GST%'
-    },
-    {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup3',
-        Label : 'Tax Amount'
-    },
-
-    {
         $Type: 'UI.DataField',
         Value: material,
         Label: 'Material',
@@ -1667,6 +1656,11 @@ annotate service.Submitted_child2 with @(UI.LineItem #ITEMS3: [
         $Type: 'UI.DataField',
         Value: discount,
         Label: 'Disc.%',
+    },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup2',
+        Label : 'GST%'
     },
     // {
     //     $Type : 'UI.DataField',
@@ -1695,6 +1689,12 @@ annotate service.Submitted_child2 with @(UI.LineItem #ITEMS3: [
         Value: taxable_amount,
         Label: 'Taxable Amount',
     },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup3',
+        Label : 'Tax Amount'
+    },
+
     // {
     //     $Type : 'UI.DataField',
     //     Value : tax_value_amount,
@@ -3089,16 +3089,6 @@ annotate service.Rejected_child2 with @(UI.FieldGroup #FieldGroup3: {Data: [
 annotate service.Rejected_child2 with @(UI.LineItem #ITEMS1: [
 
     {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup2',
-        Label : 'GST%'
-    },
-    {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup3',
-        Label : 'Tax Amount'
-    },
-    {
         $Type: 'UI.DataField',
         Value: item_no,
         Label: 'Sl No.',
@@ -3128,6 +3118,11 @@ annotate service.Rejected_child2 with @(UI.LineItem #ITEMS1: [
         Value: discount,
         Label: 'Disc.%',
     },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup2',
+        Label : 'GST%'
+    },
     // {
     //     $Type : 'UI.DataField',
     //     Value : gst_per,
@@ -3154,6 +3149,11 @@ annotate service.Rejected_child2 with @(UI.LineItem #ITEMS1: [
         $Type: 'UI.DataField',
         Value: taxable_amount,
         Label: 'Taxable Amount',
+    },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup3',
+        Label : 'Tax Amount'
     },
     // {
     //     $Type : 'UI.DataField',

@@ -1,0 +1,1 @@
+sap.ui.define(["sap/m/MessageToast"],function(t){"use strict";return{uploadattachmentmethod:function(e){t.show("Custom handler invoked.")}}});

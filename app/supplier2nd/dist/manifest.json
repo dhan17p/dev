@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/odata/v4/supplier221/",
+                "uri": "odata/v4/supplier221/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -402,13 +402,6 @@
                                         }
                                     }
                                 }
-                            },
-                            "controlConfiguration": {
-                                "child_sub2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS3": {
-                                    "tableSettings": {
-                                        "type": "GridTable"
-                                    }
-                                }
                             }
                         }
                     }
@@ -450,13 +443,6 @@
                                             "enabled": true,
                                             "text": "show/hide"
                                         }
-                                    }
-                                }
-                            },
-                            "controlConfiguration": {
-                                "child_Approved2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS": {
-                                    "tableSettings": {
-                                        "type": "GridTable"
                                     }
                                 }
                             }

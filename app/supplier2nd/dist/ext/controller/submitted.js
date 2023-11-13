@@ -1,0 +1,1 @@
+sap.ui.define(["sap/m/MessageToast"],function(n){"use strict";return{pdfhandlerfun:function(n){this.showSideContent("DATA")}}});
