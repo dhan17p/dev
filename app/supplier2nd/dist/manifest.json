@@ -359,6 +359,13 @@
                                         }
                                     }
                                 }
+                            },
+                            "controlConfiguration": {
+                                "child2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS1": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
                             }
                         }
                     }
@@ -402,6 +409,13 @@
                                         }
                                     }
                                 }
+                            },
+                            "controlConfiguration": {
+                                "child_sub2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS3": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
                             }
                         }
                     }
@@ -443,6 +457,13 @@
                                             "enabled": true,
                                             "text": "show/hide"
                                         }
+                                    }
+                                }
+                            },
+                            "controlConfiguration": {
+                                "child_Approved2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
                                     }
                                 }
                             }

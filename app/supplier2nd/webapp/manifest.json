@@ -359,6 +359,13 @@
                                         }
                                     }
                                 }
+                            },
+                            "controlConfiguration": {
+                                "child2/@com.sap.vocabularies.UI.v1.LineItem#ITEMS1": {
+                                    "tableSettings": {
+                                        "type": "GridTable"
+                                    }
+                                }
                             }
                         }
                     }

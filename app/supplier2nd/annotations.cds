@@ -2079,17 +2079,6 @@ annotate service.Approved_child2 with @(UI.LineItem #ITEMS: [
         Label: 'Sl No.',
     },
     {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup2',
-        Label : 'GST%'
-    },
-    {
-        $Type : 'UI.DataFieldForAnnotation',
-        Target: '@UI.FieldGroup#FieldGroup3',
-        Label : 'Tax Amount'
-    },
-
-    {
         $Type: 'UI.DataField',
         Value: material,
         Label: 'Material',
@@ -2113,6 +2102,11 @@ annotate service.Approved_child2 with @(UI.LineItem #ITEMS: [
         $Type: 'UI.DataField',
         Value: discount,
         Label: 'Disc.%',
+    },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup2',
+        Label : 'GST%'
     },
     // {
     //     $Type : 'UI.DataField',
@@ -2140,6 +2134,11 @@ annotate service.Approved_child2 with @(UI.LineItem #ITEMS: [
         $Type: 'UI.DataField',
         Value: taxable_amount,
         Label: 'Taxable Amount',
+    },
+    {
+        $Type : 'UI.DataFieldForAnnotation',
+        Target: '@UI.FieldGroup#FieldGroup3',
+        Label : 'Tax Amount'
     },
     // {
     //     $Type : 'UI.DataField',
